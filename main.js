@@ -1,12 +1,8 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import express from "express";
-import { indexRouter } from "./routers/indexRouter.js";
-import { categoryRouter } from "./routers/categoryAddRouter.js";
-import { getproductAddPage } from "./controllers/productAdd.js";
-import { customerRouter } from "./routers/customerRouter.js";
-import { productRouter } from "./routers/productRouter.js";
-
+import { signRouter } from "./routers/signUpRouter.js";
+import { loginRouter } from "./routers/loginRouter.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -19,10 +15,8 @@ app.set("view engine", "ejs");
 
 app.use(express.static(assetsPath));
 
-app.use("/", indexRouter);
-app.use("/category", categoryRouter);
-app.use("/product", productRouter);
-app.use("/customer", customerRouter);
+app.use("/", signRouter);
+app.use("/", loginRouter);
 
 const PORT = 3000;
 app.listen(PORT, () => {
