@@ -64,6 +64,16 @@ button:hover {
   color: white;
   text-align: center;
 }
+.content button {
+  background-color: white;
+  color: black;
+}
+.content button:hover {
+  background-color: whitesmoke;
+}
+.content > * {
+  margin-bottom: 10px;
+}
 .logo img {
   width: 80px;
   height: 80px;
@@ -72,9 +82,15 @@ button:hover {
 @media (min-width: 768px) {
   .sign-in-form {
     flex-direction: row;
+    height: auto;
   }
   .details,
   .content {
     width: 50%;
+  }
+}
+@media (min-width: 1024px) {
+  .sign-in-form {
+    height: 400px;
   }
 }

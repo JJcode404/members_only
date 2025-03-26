@@ -3,6 +3,7 @@ import { fileURLToPath } from "node:url";
 import express from "express";
 import { signRouter } from "./routers/signUpRouter.js";
 import { loginRouter } from "./routers/loginRouter.js";
+import { homeRouter } from "./routers/indexRouter.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -15,8 +16,9 @@ app.set("view engine", "ejs");
 
 app.use(express.static(assetsPath));
 
-app.use("/", signRouter);
-app.use("/", loginRouter);
+app.use("/", homeRouter);
+app.use("/sign-up", signRouter);
+app.use("/login", loginRouter);
 
 const PORT = 3000;
 app.listen(PORT, () => {

@@ -71,6 +71,9 @@ button:hover {
   color: white;
   text-align: center;
 }
+.welcome > * {
+  margin-bottom: 10px;
+}
 .logo img {
   width: 100px;
   height: 100px;
