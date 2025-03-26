@@ -1,0 +1,76 @@
+<div class="main_nav" id="sidebar">
+  <div class="sidbar_logo">
+    <div class="logo_box">
+      <div class="logo">
+        <img src="/images/icons/flyflex.png" alt="flyflex logo" />
+      </div>
+      <div class="logo_text">FlyFlex</div>
+    </div>
+  </div>
+
+  <nav>
+    <a href="/" class="dashboard">
+      <div class="flex">
+        <img src="/images/icons/layout-dashboard.svg" alt="Dashboard" />
+        <span>Dashboard</span>
+      </div>
+    </a>
+
+    <div class="categories">
+      <button onclick="toggleDropdown('categoriesDropdown')">
+        <div class="flex">
+          <img src="/images/icons/clipboard-minus.svg" alt="Categories" />
+          <span>Categories</span>
+        </div>
+        <img src="/images/icons/chevron-down.svg" id="categoriesChevron" />
+      </button>
+      <div class="dropdown" id="categoriesDropdown">
+        <a href="/category/categoryList">List</a>
+        <a href="/category/addCategory">Create</a>
+      </div>
+    </div>
+
+    <div class="products">
+      <button onclick="toggleDropdown('productsDropdown')">
+        <div class="flex">
+          <img src="/images/icons/shirt.svg" alt="Products" />
+          <span>Products</span>
+        </div>
+        <img src="/images/icons/chevron-down.svg" id="productsChevron" />
+      </button>
+      <div class="dropdown" id="productsDropdown">
+        <a href="/product/productList">List</a>
+        <a href="/product/addProduct">Create</a>
+      </div>
+    </div>
+
+    <div class="customer">
+      <button onclick="toggleDropdown('customerDropdown')">
+        <div class="flex">
+          <img src="/images/icons/user.svg" alt="Customer" />
+          <span>Customers</span>
+        </div>
+        <img src="/images/icons/chevron-down.svg" id="customerChevron" />
+      </button>
+      <div class="dropdown" id="customerDropdown">
+        <a href="/customer/customerList">List</a>
+        <a href="/customer/addCustomer">Create</a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<script>
+  function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("show");
+  }
+
+  function toggleDropdown(id) {
+    const dropdown = document.getElementById(id);
+    const chevron = document.getElementById(id.replace("Dropdown", "Chevron"));
+
+    dropdown.style.display =
+      dropdown.style.display === "flex" ? "none" : "flex";
+    chevron.classList.toggle("rotate-180");
+  }
+</script>

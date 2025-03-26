@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/common.css" />
+    <link rel="stylesheet" href="/styles/categoryAdd.css" />
+    <title>FlyFlex Inventory System</title>
+  </head>
+  <body>
+    <div class="mainContainer">
+      <%- include('../partials/sidebar') %>
+      <div class="content">
+        <div class="title">
+          <p>ADD CUSTOMER</p>
+        </div>
+        <form action="/customer/addCustomer" method="POST">
+          <div class="top">
+            <div class="head">
+              <p>Add User Photo</p>
+            </div>
+
+            <label for="images" class="drop-container" id="dropcontainer">
+              <span class="drop-title">Drop files here</span>
+              or
+              <input
+                type="file"
+                id="images"
+                accept="image/*"
+                name="image"
+                required
+              />
+              <span class="instruction"
+                >1600 x 1200 (4:3) recommended. PNG, JPG and GIF files are
+                allowed</span
+              >
+            </label>
+          </div>
+          <div class="bottom">
+            <div class="information">Personal Information</div>
+
+            <div class="general-information">
+              <div class="informationForm personal">
+                <div class="name">
+                  <div class="firstName">
+                    <label>First Name</label>
+                    <input
+                      type="text"
+                      name="firstName"
+                      placeholder="Enter first name"
+                    />
+                  </div>
+                  <div class="lastName">
+                    <label>Last Name</label>
+                    <input
+                      type="text"
+                      name="lastName"
+                      placeholder="Enter last name"
+                    />
+                  </div>
+                </div>
+
+                <div class="emailAddress">
+                  <label>Email Address</label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter email address"
+                  />
+                </div>
+                <div class="right">
+                  <div class="phoneNumber">
+                    <label>Phone Number</label>
+                    <input
+                      type="tel"
+                      name="phoneNumber"
+                      placeholder="Enter phone number"
+                    />
+                  </div>
+                </div>
+                <div class="gender">
+                  <label>Gender</label>
+                  <div class="gender-options">
+                    <input type="radio" id="male" name="gender" value="male" />
+                    <label for="male">Male</label>
+
+                    <input
+                      type="radio"
+                      id="female"
+                      name="gender"
+                      value="female"
+                    />
+                    <label for="female">Female</label>
+
+                    <input
+                      type="radio"
+                      id="other"
+                      name="gender"
+                      value="preferNotToSay"
+                    />
+                    <label for="other">Prefer Not To Say</label>
+                  </div>
+                </div>
+              </div>
+              <div class="Address">
+                <label>Address</label>
+                <input
+                  type="address"
+                  name="address"
+                  placeholder="Enter ddress"
+                />
+              </div>
+              <div class="lastlast">
+                <div class="country">
+                  <select name="country" id="country">
+                    <option value="country">Country</option>
+                    <option value="Kenya">Kenya</option>
+                    <option value="USA">USA</option>
+                    <option value="SOUTH AFRICA">SOUTH AFRICA</option>
+                  </select>
+                </div>
+                <div class="postalcode">
+                  <label>Postal Code</label>
+                  <input
+                    type="number"
+                    name="postalcode"
+                    placeholder="Enter postal code"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <%- include("../partials/errors") %>
+          <div class="submit">
+            <button type="submit">Create User</button>
+            <button>Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

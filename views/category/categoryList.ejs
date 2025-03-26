@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product List</title>
+    <link rel="stylesheet" href="/styles/common.css" />
+    <link rel="stylesheet" href="/styles/categoryAdd.css" />
+    <link rel="stylesheet" href="/styles/tables.css" />
+  </head>
+  <body>
+    <div class="mainContainer">
+      <%- include('../partials/sidebar') %>
+      <div class="content">
+        <div class="header"><%- include('../partials/searchbar') %></div>
+        <div class="title">
+          <p>CATEGORY LIST</p>
+          <a href="/category/addCategory"
+            ><button class="productCreate">ADD CATEGORY</button></a
+          >
+        </div>
+        <div class="top">
+          <table class="product-table">
+            <thead>
+              <tr>
+                <th>Categories</th>
+                <th>Created_by</th>
+                <th>ID</th>
+                <th>Product Stock</th>
+                <th>Published Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% stats.forEach(category => { %>
+              <tr class="product-row">
+                <td><b><%= category.name %></b><br /></td>
+                <td><%= category.created_by %></td>
+                <td><%= category.category_id %></td>
+                <td><%= category.stock%> Items Left</td>
+                <td>
+                  <%= new
+                  Date(category.publish_date).toLocaleDateString("en-US", {
+                  year: "numeric", month: "long", day: "numeric" }) %>
+                </td>
+                <td><button class="action-btn">View</button></td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+        <%- include('../partials/copyright') %>
+      </div>
+    </div>
+  </body>
+</html>

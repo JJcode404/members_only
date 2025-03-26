@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/common.css" />
+    <link rel="stylesheet" href="/styles/categoryAdd.css" />
+    <title>FlyFlex Inventory System</title>
+  </head>
+  <body>
+    <div class="mainContainer">
+      <%- include('../partials/sidebar') %>
+      <div class="content">
+        <div class="title">
+          <p>ADD PRODUCT</p>
+        </div>
+        <form action="/product/addProduct" method="POST">
+          <div class="top">
+            <div class="head">
+              <p>Add Product Photo</p>
+            </div>
+            <label for="images" class="drop-container" id="dropcontainer">
+              <span class="drop-title">Drop files here</span>
+              or
+              <input
+                type="file"
+                id="images"
+                accept="image/*"
+                name="image"
+                required
+              />
+              <span class="instruction">
+                1600 x 1200 (4:3) recommended. PNG, JPG, and GIF files are
+                allowed
+              </span>
+            </label>
+          </div>
+
+          <div class="bottom">
+            <div class="information">Product Information</div>
+            <div class="general-information">
+              <div class="informationForm">
+                <div class="left">
+                  <div class="product-name">
+                    <label>Product Name</label>
+                    <input
+                      type="text"
+                      name="productName"
+                      placeholder="Item Name"
+                    />
+                  </div>
+                  <div class="productCategory">
+                    <label>Product Categories</label>
+                    <select name="productCategory" id="productCategory">
+                      <option value="">Choose Categories</option>
+                      <% categories.forEach(category => { %>
+                      <option value="<%= category.category_id %>">
+                        <%= category.name %>
+                      </option>
+                      <% }) %>
+                    </select>
+                  </div>
+                </div>
+                <div class="right">
+                  <div class="brandName">
+                    <label>Brand Name</label>
+                    <input
+                      type="text"
+                      name="brandName"
+                      placeholder="Brand Name"
+                    />
+                  </div>
+                  <div class="weight">
+                    <label>Weight</label>
+                    <input type="text" name="weight" placeholder="in gm" />
+                  </div>
+                  <div class="gender">
+                    <label>Gender</label>
+                    <select name="gender" id="gender">
+                      <option value="">Select Gender</option>
+                      <option value="men">Men</option>
+                      <option value="others">Others</option>
+                      <option value="women">Women</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="Description">
+                <label>Description</label>
+                <textarea id="description" name="description"></textarea>
+              </div>
+
+              <div class="last">
+                <div class="size">
+                  <label>Size</label>
+                  <select name="size" id="size">
+                    <option value="">Select Size</option>
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="3XL">3XL</option>
+                  </select>
+                </div>
+                <div class="stock-info">
+                  <label>Stock</label>
+                  <input type="number" name="stock" placeholder="Quantity" />
+                </div>
+                <div class="color">
+                  <label for="color">Color</label>
+                  <select name="color" id="color">
+                    <option value="default">Select Color</option>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="purple">Purple</option>
+                    <option value="orange">Orange</option>
+                    <option value="black">Black</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bottom">
+            <div class="information">Pricing Details</div>
+            <div class="pricingDetails">
+              <div class="price">
+                <label>Price</label>
+                <input type="number" name="price" placeholder="000" />
+              </div>
+              <div class="Discount">
+                <label>Discount</label>
+                <input type="number" name="discount" placeholder="000" />
+              </div>
+            </div>
+          </div>
+
+          <div class="submit">
+            <button type="submit">Add Product</button>
+            <button type="button">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

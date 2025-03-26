@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product List</title>
+    <link rel="stylesheet" href="/styles/common.css" />
+    <link rel="stylesheet" href="/styles/categoryAdd.css" />
+    <link rel="stylesheet" href="/styles/tables.css" />
+  </head>
+  <body>
+    <div class="mainContainer">
+      <%- include('../partials/sidebar') %>
+      <div class="content">
+        <div class="header"><%- include('../partials/searchbar') %></div>
+        <div class="title">
+          <p>CUSTOMER LIST</p>
+          <a href="/customer/addCustomer"
+            ><button class="productCreate">ADD CUSTOMER</button></a
+          >
+        </div>
+        <div class="top">
+          <table class="product-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Customers</th>
+                <th>Mail</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>Country</th>
+                <th>Address</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% stats.forEach(customer => { %>
+              <tr class="product-row">
+                <td><b><%= customer.user_id %></b><br /></td>
+                <td><%= customer.name %></td>
+                <td><%= customer.email %></td>
+                <td><%= customer.phone_number%></td>
+                <td><%= customer.gender %></td>
+                <td><%= customer.country%></td>
+                <td><%= customer.address%></td>
+                <td><button class="action-btn">View</button></td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+        <%- include('../partials/copyright') %>
+      </div>
+    </div>
+  </body>
+</html>
