@@ -4,6 +4,6 @@ import { validateSignup } from "../validators/validateSignUP.js";
 
 const signRouter = Router();
 signRouter.get("/", singUppage);
-signRouter.post("/", validateSignup, postUserDetails);
+signRouter.post("/", postUserDetails);
 
 export { signRouter };

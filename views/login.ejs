@@ -12,12 +12,22 @@
       <div class="details">
         <h2>Welcome Back!</h2>
         <p>Please sign in to continue</p>
-        <form action="#" method="get">
+        <form action="/login" method="post">
           <label>Email</label>
-          <input type="email" placeholder="you@example.com" required />
+          <input
+            type="email"
+            placeholder="you@example.com"
+            name="username"
+            required
+          />
           <label>Password</label>
-          <input type="password" placeholder="Password" required />
-          <button>Sign In</button>
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            required
+          />
+          <button type="submit">Sign In</button>
         </form>
       </div>
       <div class="content">

@@ -1,5 +1,11 @@
+import passport from "passport";
 const loginPage = (req, res) => {
   res.render("login");
 };
 
-export { loginPage };
+const authenticateUser = passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/login",
+});
+
+export { loginPage, authenticateUser };
