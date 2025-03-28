@@ -10,6 +10,9 @@ import { Strategy as LocalStrategy } from "passport-local";
 import { signRouter } from "./routers/signUpRouter.js";
 import { loginRouter } from "./routers/loginRouter.js";
 import { homeRouter } from "./routers/indexRouter.js";
+import { messageRouter } from "./routers/createMessageRouter.js";
+import { passcodeRouter } from "./routers/passcodeRouter.js";
+import { deleteMessage } from "./controllers/createMessage.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -77,19 +80,18 @@ passport.deserializeUser(async (user_id, done) => {
 
 app.use(passport.initialize());
 app.use(passport.session());
+
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   next();
 });
 
-app.use((req, res, next) => {
-  console.log("Session ID:", req.sessionID);
-  console.log(req.session);
-  next();
-});
 app.use("/", homeRouter);
 app.use("/sign-up", signRouter);
 app.use("/login", loginRouter);
+app.use("/create-message", messageRouter);
+app.use("/delete-message/:id", deleteMessage);
+app.use("/passcode", passcodeRouter);
 
 app.get("/logout", (req, res, next) => {
   req.logout((err) => {
