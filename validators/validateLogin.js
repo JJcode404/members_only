@@ -6,7 +6,7 @@ const loginValidationErrors = {
 };
 
 const validateLogin = [
-  body("email")
+  body("username")
     .trim()
     .isEmail()
     .withMessage(`Email ${loginValidationErrors.emailErr}`),

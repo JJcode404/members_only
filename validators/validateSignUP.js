@@ -24,7 +24,7 @@ const validateSignup = [
     .matches(/^\+?\d{10,15}$/)
     .withMessage(`Phone number ${signupValidationErrors.phoneErr}`),
 
-  body("passwordDls")
+  body("password")
     .trim()
     .isLength({ min: 6 })
     .withMessage(`Password ${signupValidationErrors.passwordErr}`),
@@ -41,7 +41,7 @@ const validateSignup = [
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).render("signup", {
+      return res.status(400).render("sign-up", {
         errors: errors.array(),
       });
     }
