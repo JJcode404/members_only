@@ -62,7 +62,9 @@
           <p><strong>Message:</strong> <%= user.message %></p>
 
           <% if (currentUser) { %>
-          <p><strong>Author:</strong> <%= user.full_name %></p>
+          <p class="fullname" style="text-transform: capitalize">
+            <strong>Author:</strong> <%= user.full_name %>
+          </p>
           <p>
             <strong>Date:</strong> <%= new
             Date(user.created_at).toLocaleDateString("en-US", { weekday: 'long',

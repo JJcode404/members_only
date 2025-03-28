@@ -32,7 +32,7 @@ const validateSignup = [
   body("cfrmpassord")
     .trim()
     .custom((value, { req }) => {
-      if (value !== req.body.passwordDls) {
+      if (value !== req.body.password) {
         throw new Error(signupValidationErrors.confirmPasswordErr);
       }
       return true;
