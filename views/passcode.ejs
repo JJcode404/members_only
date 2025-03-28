@@ -80,7 +80,7 @@
   <body>
     <div class="container">
       <h2>Enter Passcode</h2>
-      <form id="passcodeForm">
+      <form action="/passcode" id="passcodeForm" method="post">
         <div class="input-group">
           <label for="passcode">Passcode</label>
           <input
@@ -92,27 +92,10 @@
           />
         </div>
         <button type="submit" class="btn">Submit</button>
-        <p class="error" id="errorMessage" style="display: none">
-          Incorrect passcode. Try again.
-        </p>
+        <% if (typeof errorMessage !== "undefined" && errorMessage) { %>
+        <p class="error"><%= errorMessage %></p>
+        <% } %>
       </form>
     </div>
-
-    <script>
-      document
-        .getElementById("passcodeForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-          const correctPasscode = "12345"; // Change this to your actual passcode
-          const enteredPasscode = document.getElementById("passcode").value;
-
-          if (enteredPasscode === correctPasscode) {
-            alert("Passcode correct! You are now a member.");
-            window.location.href = "club-membership.html"; // Redirect to membership page
-          } else {
-            document.getElementById("errorMessage").style.display = "block";
-          }
-        });
-    </script>
   </body>
 </html>

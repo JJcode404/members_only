@@ -1,7 +1,8 @@
 import { Router } from "express";
-import { passcodePage } from "../controllers/passcode.js";
+import { passcodePage, verifyPasscode } from "../controllers/passcode.js";
 
 const passcodeRouter = Router();
 passcodeRouter.get("/", passcodePage);
+passcodeRouter.post("/", verifyPasscode);
 
 export { passcodeRouter };
