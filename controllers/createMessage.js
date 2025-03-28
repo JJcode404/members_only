@@ -20,7 +20,6 @@ const postUserMessage = async (req, res) => {
 };
 
 const deleteMessage = async (req, res) => {
-  console.log("deleting message");
   const messageId = req.params.id;
   console.log(messageId);
   await pool.query("DELETE FROM messages WHERE message_id = $1", [messageId]);
