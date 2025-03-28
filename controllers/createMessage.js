@@ -10,9 +10,7 @@ const postUserMessage = async (req, res) => {
       [req.body.title, req.body.message, req.user.user_id]
     );
 
-    res
-      .status(201)
-      .json({ success: true, message: "Message posted successfully" });
+    res.redirect("/");
   } catch (error) {
     console.error("Error inserting message:", error);
     res.status(500).json({ success: false, message: "Server error" });
