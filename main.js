@@ -104,7 +104,7 @@ app.get("/logout", (req, res, next) => {
   });
 });
 
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`My first Express app - listening on port ${PORT}!`);
-});
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () =>
+  console.log(`Members Only app - listening on port ${PORT}!`)
+);
