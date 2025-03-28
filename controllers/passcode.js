@@ -11,7 +11,7 @@ const verifyPasscode = async (req, res) => {
     if (passcode === correctPasscode) {
       await pool.query(
         "UPDATE users SET membership_status = 'admin' WHERE user_id = $1",
-        [req.user.id]
+        [req.user.user_id]
       );
 
       req.user.membership_status = "admin";

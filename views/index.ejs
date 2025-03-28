@@ -10,11 +10,20 @@
     <div class="container">
       <div class="welcome-box">
         <% if (currentUser) { %>
-        <h2>Welcome, <%= currentUser.full_name %>!</h2>
-        <p>You are logged in but not yet a member. Please join the club!</p>
+        <h2 class="intro">Welcome, <%= currentUser.full_name %>!</h2>
+        <% if (currentUser && currentUser.membership_status !== "admin") { %>
+        <p>
+          🚀 Ready to take charge? Enter the passcode and step into your admin
+          role today!
+        </p>
         <a href="/passcode">
-          <button class="btn blue">Become a Member</button>
+          <button class="btn blue">Become Admin</button>
         </a>
+        <% } else { %>
+        <p>
+          👑 You are already an admin! Manage the club with your new privileges.
+        </p>
+        <% } %>
         <a href="/create-message">
           <button class="btn green">Create a New Message</button>
         </a>
@@ -42,7 +51,9 @@
             Privacy 🔒, No Spamming 🚫, Have Fun! 🎉
           </p>
           <% if (!currentUser) { %>
-          <p class="join-msg">Join the club to see more details!</p>
+          <a href="/login">
+            <p class="join-msg">Join the club to see more details!</p>
+          </a>
           <% } %>
         </div>
         <% userMessages.forEach(user => { %>

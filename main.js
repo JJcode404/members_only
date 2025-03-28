@@ -99,7 +99,7 @@ app.get("/logout", (req, res, next) => {
       return next(err);
     }
     req.session.destroy(() => {
-      res.redirect("/login");
+      res.redirect("/");
     });
   });
 });
